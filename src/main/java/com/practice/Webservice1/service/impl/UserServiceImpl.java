@@ -25,7 +25,7 @@ public class UserServiceImpl implements UserService {
 			return "Record added in database";
 		} else
 			return "Record not added in database";
-	}
+	} 
 
 
 	@Override
@@ -33,11 +33,11 @@ public class UserServiceImpl implements UserService {
 		
 		Tax tx = repository.getTaxAmount(date);
 		if (tx.getYeralySal() >= 250001 && tx.getYeralySal() <=500000 ) {
-			tx.setTaxAmount((tx.getYeralySal()*5/100)*2/100);
+			tx.setTaxAmount((tx.getYeralySal()*5/100));
 		}else if(tx.getYeralySal() >= 5000001  && tx.getYeralySal() <=1000000) {
-			tx.setTaxAmount((tx.getYeralySal()*10/100)*2/100);
+			tx.setTaxAmount((tx.getYeralySal()*10/100));
 		}else if(tx.getYeralySal() > 1000000 ) {
-			tx.setTaxAmount((tx.getYeralySal()*20/100)*2/100);
+			tx.setTaxAmount((tx.getYeralySal()*20/100));
 		}
 		
 		return tx;
